@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Rates Template - Service Change</title>
+    <link rel="stylesheet" href="style_figma.css">
+<!--    <link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Additional Rates Template - To Fill Out</h1>
+        <p>Please fill out the fields below. Service selection below automatically filters the list of additional charges. **(Current number of charges: 30)**.</p>
+
+        <div class="service-selector">
+            <label for="serviceSelector">Select Service:</label>
+            <select id="serviceSelector">
+                <option value="COMMON">COMMON (All Charges)</option>
+                <option value="EXPRESS">Express (Example Service)</option>
+                <option value="STANDARD">Standard (Example Service)</option>
+                <option value="FREIGHT">Freight (Example Service)</option>
+            </select>
+        </div>
+
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Surcharge Type</th>
+                        <th style="width: 45%;">Description</th>
+                        <th style="width: 30%;">Required Fields</th>
+                    </tr>
+                </thead>
+                <tbody id="surchargeTableBody">
+                    </tbody>
+            </table>
+
+            <div class="notes">
+                <h3>Instructions:</h3>
+                <p><strong>Zone/Country:</strong> Enter the zone name or country code.</p>
+                <p><strong>Rate:</strong> Enter the numerical rate value. Do not include currency symbols if there are separate currency fields.</p>
+                <p><strong>Currency:</strong> Enter the three-letter currency code (e.g., EUR, USD).</p>
+            </div>
+
+            <button type="submit" class="submit-btn">Save and Submit (Example Button)</button>
+        </form>
+    </div>
+
+    <script src='../main_combo.js'>
+        
+    </script>
+</body>
+</html>
+                "description": "Fee for delivering the package beyon

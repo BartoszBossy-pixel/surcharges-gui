@@ -1,0 +1,46 @@
+[
+  {
+    "value": "all",
+    "label": "All Services"
+  },
+  {
+    "value": "hermes_parcel_shop",
+    "label": "Hermes Parcel Shop Drop Off"
+  },
+  {
+    "value": "hermes_courier",
+    "label": "Hermes Courier Collection"
+  },
+  {
+    "value": "dpd_pickup",
+    "label": "DPD Pickup"
+  },
+  {
+    "value": "dpd_drop_off",
+    "label": "DPD Drop Off"
+  },
+  {
+    "value": "ups_standard",
+    "label": "UPS Standard"
+  },
+  {
+    "value": "ups_express",
+    "label": "UPS Express"
+  },
+  {
+    "value": "fedex_ground",
+    "label": "FedEx Ground"
+  },
+  {
+    "value": "fedex_express",
+    "label": "FedEx Express"
+  },
+  {
+    "value": "royal_mail_1st",
+    "label": "Royal Mail 1st Class"
+  },
+  {
+    "value": "royal_mail_2nd",
+    "label": "Royal Mail 2nd Class"
+  }
+]

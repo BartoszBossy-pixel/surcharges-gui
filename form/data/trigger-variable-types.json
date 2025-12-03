@@ -1,0 +1,11 @@
+{
+  "typeMapping": {
+    "ShipDate": "date",
+    "Weight": "numeric",
+    "PostCode": "text",
+    "Girth": "numeric",
+    "IsResidential": "boolean",
+    "PackagesCount": "numeric"
+  },
+  "defaultType": "default"
+}

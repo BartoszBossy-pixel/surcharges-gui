@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Surcharge Rules Editor - Selects</title>
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body>
+
+<div class="table-wrapper">
+    <div class="property-table">
+        <h3>Surcharge Rules (Details)</h3>
+
+        <div class="success-message" id="successMessage">
+            Rules have been successfully saved!
+        </div>
+
+        <div class="row header-row">
+            <div>Service</div>
+            <div>Applicable Zones</div>
+            <div>Surcharge Code</div>
+            <div>Surcharge Name</div>
+            <div>**Trigger Variable**</div>
+            <div>**Operator**</div>
+            <div>Trigger Value</div>
+            <div>**Calculation Type**</div>
+            <div>**Calculation Basis**</div>
+            <div>Rate / Base</div>
+            <div>Offset</div>
+            <div>Multiplier</div>
+            <div>Actions</div>
+        </div>
+
+        <div class="row" data-row-id="1">
+            <div>
+                <input type="text" class="form-control" name="service" required
+                       value="Hermes Parcel Shop Drop Off;... (i 5 innych)">
+                <div class="error-message">This field is required</div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="zones" value="-">
+                <div class="error-message"></div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="surcharge_code" required value="POD_FEE">
+                <div class="error-message">This field is required</div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="surcharge_name" required value="Proof of Delivery (POD)">
+                <div class="error-message">This field is required</div>
+            </div>
+
+            <div class="select-wrapper">
+                <select class="form-control trigger-variable" name="trigger_variable">
+                    <option value="None" selected>None</option>
+                    <option value="ShipDate">ShipDate</option>
+                    <option value="Weight">Weight</option>
+                    <option value="PostCode">PostCode</option>
+                    <option value="Girth">Girth</option>
+                    <option value="IsResidential">IsResidential</option>
+                    <option value="PackagesCount">PackagesCount</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+            <div class="select-wrapper">
+                <select class="form-control operator" name="operator">
+                    <option value="None" selected>None</option>
+                    <option value="MoreThan">MoreThan</option>
+                    <option value="LessThan">LessThan</option>
+                    <option value="InList">InList</option>
+                    <option value="InRange">InRange</option>
+                    <option value="Is">Is</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+
+            <div>
+                <input type="text" class="form-control trigger-value" name="trigger_value" value="-">
+                <div class="error-message"></div>
+            </div>
+            <div class="select-wrapper">
+                <select class="form-control" name="calculation_type" required>
+                    <option value="Fixed" selected>Fixed</option>
+                    <option value="Percentage">Percentage</option>
+                    <option value="Linear">Linear</option>
+                </select>
+                <div class="error-message">This field is required</div>
+            </div>
+            <div class="select-wrapper">
+                <select class="form-control" name="calculation_basis" required>
+                    <option value="BasePrice" selected>BasePrice</option>
+                    <option value="Subtotal">Subtotal</option>
+                </select>
+                <div class="error-message">This field is required</div>
+            </div>
+
+            <div>
+                <input type="number" class="form-control" name="rate_base" value="0.6" step="0.01" min="0" required>
+                <div class="error-message">Value must be greater than or equal to 0</div>
+            </div>
+            <div>
+                <input type="number" class="form-control" name="offset" value="0" step="1">
+                <div class="error-message"></div>
+            </div>
+            <div>
+                <input type="number" class="form-control" name="multiplier" value="0" step="1">
+                <div class="error-message"></div>
+            </div>
+            <div class="row-actions">
+                <button type="button" class="remove-row-btn" onclick="formController.removeRow(1)">✕</button>
+            </div>
+        </div>
+
+        <div class="row" data-row-id="2">
+            <div>
+                <input type="text" class="form-control" name="service" required value="All">
+                <div class="error-message">This field is required</div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="zones" value="-">
+                <div class="error-message"></div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="surcharge_code" required value="FUEL_PERCENT">
+                <div class="error-message">This field is required</div>
+            </div>
+            <div>
+                <input type="text" class="form-control" name="surcharge_name" required value="Fuel surcharge - percentage">
+                <div class="error-message">This field is required</div>
+            </div>
+
+            <div class="select-wrapper">
+                <select class="form-control trigger-variable" name="trigger_variable">
+                    <option value="None" selected>None</option>
+                    <option value="ShipDate">ShipDate</option>
+                    <option value="Weight">Weight</option>
+                    <option value="PostCode">PostCode</option>
+                    <option value="Girth">Girth</option>
+                    <option value="IsResidential">IsResidential</option>
+                    <option value="PackagesCount">PackagesCount</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+            <div class="select-wrapper">
+                <select class="form-control operator" name="operator">
+                    <option value="None" selected>None</option>
+                    <option value="InRange">InRange</option>
+                    <option value="MoreThan">MoreThan</option>
+                    <option value="LessThan">LessThan</option>
+                    <option value="InList">InList</option>
+                    <option value="Is">Is</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+
+            <div>
+                <input type="text" class="form-control trigger-value" name="trigger_value" value="-">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="select-wrapper">
+                <select class="form-control" name="calculation_type" required>
+                    <option value="Fixed">Fixed</option>
+                    <option value="Percentage" selected>Percentage</option>
+                    <option value="Linear">Linear</option>
+                </select>
+                <div class="error-message">This field is required</div>
+            </div>
+            <div class="select-wrapper">
+                <select class="form-control" name="calculation_basis" required>
+                    <option value="BasePrice">BasePrice</option>
+                    <option value="Subtotal" selected>Subtotal</option>
+                </select>
+                <div class="error-message">This field is required</div>
+            </div>
+
+            <div>
+                <input type="number" class="form-control" name="rate_base" value="0.03" step="0.01" min="0" required>
+                <div class="error-message">Value must be greater than or equal to 0</div>
+            </div>
+            <div>
+                <input type="number" class="form-control" name="offset" value="0" step="1">
+                <div class="error-message"></div>
+            </div>
+            <div>
+                <input type="number" class="form-control" name="multiplier" value="0" step="1">
+                <div class="error-message"></div>
+            </div>
+            <div class="row-actions">
+                <button type="button" class="remove-row-btn" onclick="formController.removeRow(2)">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align: center; padding: 20px 0;">
+        <button type="button" class="add-row-btn" onclick="formController.addNewRow()">
+            <span class="icon">➕</span> Add New Rule
+        </button>
+        <button type="button" class="save-all-btn" onclick="formController.done()">
+            <span class="icon">✓</span> Save All Rules
+        </button>
+    </div>
+</div>
+
+<!-- Loading controllers -->
+<script src="controllers/data-controller.js"></script>
+<script src="controllers/form-controller.js"></script>
+
+<script>
+// Application initialization
+let dataController;
+let formController;
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // Create controller instances
+    dataController = new DataController();
+    formController = new FormController(dataController);
+    
+    // Initialize form
+    await formController.initialize();
+    
+    // Make available globally for onclick handlers
+    window.formController = formController;
+});
+</script>
+
+</body>
+</html>
