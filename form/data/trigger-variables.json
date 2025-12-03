@@ -1,0 +1,33 @@
+{
+  "triggerVariables": [
+    {
+      "value": "None",
+      "label": "None",
+      "selected": true
+    },
+    {
+      "value": "ShipDate",
+      "label": "ShipDate"
+    },
+    {
+      "value": "Weight",
+      "label": "Weight"
+    },
+    {
+      "value": "PostCode",
+      "label": "PostCode"
+    },
+    {
+      "value": "Girth",
+      "label": "Girth"
+    },
+    {
+      "value": "IsResidential",
+      "label": "IsResidential"
+    },
+    {
+      "value": "PackagesCount",
+      "label": "PackagesCount"
+    }
+  ]
+}

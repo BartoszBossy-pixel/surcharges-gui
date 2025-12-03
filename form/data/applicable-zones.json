@@ -1,0 +1,62 @@
+[
+  {
+    "value": "-",
+    "label": "All Zones"
+  },
+  {
+    "value": "domestic",
+    "label": "Domestic"
+  },
+  {
+    "value": "international",
+    "label": "International"
+  },
+  {
+    "value": "europe",
+    "label": "Europe"
+  },
+  {
+    "value": "north_america",
+    "label": "North America"
+  },
+  {
+    "value": "asia_pacific",
+    "label": "Asia Pacific"
+  },
+  {
+    "value": "zone_1",
+    "label": "Zone 1"
+  },
+  {
+    "value": "zone_2",
+    "label": "Zone 2"
+  },
+  {
+    "value": "zone_3",
+    "label": "Zone 3"
+  },
+  {
+    "value": "zone_4",
+    "label": "Zone 4"
+  },
+  {
+    "value": "zone_5",
+    "label": "Zone 5"
+  },
+  {
+    "value": "remote_areas",
+    "label": "Remote Areas"
+  },
+  {
+    "value": "urban",
+    "label": "Urban Areas"
+  },
+  {
+    "value": "rural",
+    "label": "Rural Areas"
+  },
+  {
+    "value": "postal_code_range",
+    "label": "Postal Code Range"
+  }
+]

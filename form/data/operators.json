@@ -1,0 +1,75 @@
+{
+  "operators": {
+    "default": [
+      {
+        "value": "None",
+        "label": "None",
+        "selected": true
+      }
+    ],
+    "numeric": [
+      {
+        "value": "None",
+        "label": "None"
+      },
+      {
+        "value": "InRange",
+        "label": "InRange"
+      },
+      {
+        "value": "MoreThan",
+        "label": "MoreThan"
+      },
+      {
+        "value": "LessThan",
+        "label": "LessThan"
+      },
+      {
+        "value": "Is",
+        "label": "Is"
+      }
+    ],
+    "text": [
+      {
+        "value": "None",
+        "label": "None"
+      },
+      {
+        "value": "InList",
+        "label": "InList"
+      },
+      {
+        "value": "Is",
+        "label": "Is"
+      }
+    ],
+    "boolean": [
+      {
+        "value": "None",
+        "label": "None"
+      },
+      {
+        "value": "Is",
+        "label": "Is"
+      }
+    ],
+    "date": [
+      {
+        "value": "None",
+        "label": "None"
+      },
+      {
+        "value": "InRange",
+        "label": "InRange"
+      },
+      {
+        "value": "MoreThan",
+        "label": "MoreThan"
+      },
+      {
+        "value": "LessThan",
+        "label": "LessThan"
+      }
+    ]
+  }
+}

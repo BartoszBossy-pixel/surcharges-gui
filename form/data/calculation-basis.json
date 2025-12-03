@@ -1,0 +1,12 @@
+{
+  "calculationBasis": [
+    {
+      "value": "BasePrice",
+      "label": "BasePrice"
+    },
+    {
+      "value": "Subtotal",
+      "label": "Subtotal"
+    }
+  ]
+}
