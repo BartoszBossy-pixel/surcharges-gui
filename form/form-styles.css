@@ -1,0 +1,589 @@
+/* ==================================== */
+/* === STYLE CSS === */
+/* ==================================== */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f7f9fc;
+    padding: 20px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: visible; /* Allow dropdowns to extend beyond table */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.property-table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 1500px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 150px 180px 100px 100px 100px 100px 100px 100px 100px 100px 120px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e6ed;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-row {
+    background-color: #f0f4f8;
+    font-weight: bold;
+    color: #495057;
+    padding: 10px 20px;
+    border-bottom: 2px solid #e0e6ed;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.form-control {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '⌄';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Dodatkowe style dla JavaScript funkcjonalności */
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 2px;
+    display: none;
+}
+
+.success-message {
+    color: #28a745;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    display: none;
+}
+
+.add-row-btn, .remove-row-btn, .save-all-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.add-row-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.remove-row-btn {
+    background-color: transparent;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.save-all-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.add-row-btn:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.remove-row-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+    transform: translateY(-1px);
+}
+
+.save-all-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.icon {
+    font-size: 14px;
+    line-height: 1;
+    filter: brightness(0) invert(1);
+}
+
+.remove-row-btn .icon,
+.remove-row-btn {
+    filter: none;
+    color: #dc3545;
+}
+
+.row-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 55px;
+}
+
+.form-control.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 1px rgba(220, 53, 69, 0.25);
+}
+
+.form-control.valid {
+    border-color: #28a745;
+    box-shadow: 0 0 0 1px rgba(40, 167, 69, 0.25);
+}
+
+/* ==================================== */
+/* === MULTISELECT COMPONENT === */
+/* ==================================== */
+
+.multiselect-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.multiselect-container {
+    position: relative;
+    width: 100%;
+}
+
+.multiselect-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.4;
+    min-height: 32px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.multiselect-display:hover {
+    border-color: #007bff;
+}
+
+.multiselect-display.active {
+    border-color: #007bff;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.multiselect-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #495057;
+}
+
+.multiselect-arrow {
+    color: #6c757d;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+    margin-left: 8px;
+}
+
+.multiselect-display.active .multiselect-arrow {
+    transform: rotate(180deg);
+}
+
+.multiselect-dropdown {
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.multiselect-dropdown.show {
+    display: block;
+}
+
+.multiselect-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.multiselect-option:last-child {
+    border-bottom: none;
+}
+
+.multiselect-option:hover {
+    background-color: #f8f9fa;
+}
+
+.multiselect-option input[type="checkbox"] {
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+.multiselect-option label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 13px;
+    color: #495057;
+    margin: 0;
+}
+
+.multiselect-container.error .multiselect-display {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 1px rgba(220, 53, 69, 0.25);
+}
+
+.multiselect-container.valid .multiselect-display {
+    border-color: #28a745;
+    box-shadow: 0 0 0 1px rgba(40, 167, 69, 0.25);
+}
+
+/* Selected items display */
+.multiselect-text.multiple {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.multiselect-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100px;
+}
+
+.multiselect-tag-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.multiselect-tag-remove {
+    cursor: pointer;
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.multiselect-tag-remove:hover {
+    opacity: 1;
+}
+
+/* ==================================== */
+/* === JSON OUTPUT MODAL === */
+/* ==================================== */
+
+.json-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.json-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.json-modal-content {
+    background: #ffffff;
+    border: 1px solid #e0e6ed;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.4s ease-out;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.json-modal-header {
+    background: #f0f4f8;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e6ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.json-modal-title {
+    color: #495057;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.json-modal-title::before {
+    content: "📄";
+    font-size: 16px;
+}
+
+.json-modal-close {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #495057;
+    font-size: 16px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.json-modal-close:hover {
+    background: #f8f9fa;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.json-modal-body {
+    padding: 20px;
+    background: #f7f9fc;
+    max-height: calc(90vh - 100px);
+    overflow-y: auto;
+}
+
+.json-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.json-action-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.json-action-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.json-action-btn:active {
+    transform: translateY(0);
+}
+
+.json-action-btn.success {
+    background-color: #28a745;
+}
+
+.json-action-btn.success:hover {
+    background-color: #218838;
+}
+
+.json-container {
+    background: #ffffff;
+    border: 1px solid #e0e6ed;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.json-header {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e6ed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.json-filename {
+    color: #495057;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.json-content {
+    padding: 15px;
+    background: #282828;
+    color: #b6b6b6;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* JSON Syntax Highlighting */
+.json-key {
+    color: #cb744e;
+    font-weight: 600;
+}
+
+.json-string {
+    color: #7cacf8;
+}
+
+.json-number {
+    color: #dc3545;
+}
+
+.json-boolean {
+    color: #6f42c1;
+}
+
+.json-null {
+    color: #6c757d;
+}
+
+.json-bracket {
+    color: #495057;
+    font-weight: bold;
+}
+
+.json-comma {
+    color: #6c757d;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Scrollbar styling for JSON content */
+.json-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.json-content::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.json-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+}
+
+.json-content::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .json-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .json-modal-header {
+        padding: 20px;
+    }
+    
+    .json-modal-title {
+        font-size: 20px;
+    }
+    
+    .json-modal-body {
+        padding: 20px;
+    }
+    
+    .json-actions {
+        flex-direction: column;
+    }
+    
+    .json-action-btn {
+        justify-content: center;
+    }
+}
